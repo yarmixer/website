@@ -15,6 +15,7 @@
 </head>
 <body bgcolor="#F5FFFA" background="static/img/menu.jpg">
 <div id="menu">
+    <form class="menu_form" method="post">
     <h1 id="section">Меню</h1>
     <div id="menu_row">
         <div id="menu_col">
@@ -26,6 +27,11 @@
                 <div>
                     <h3></h3>
                     <h4>450 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="1">-</button>
+                        <input class="ens-counter-value" data-rel="1" type="text" value="0" name="breakfast1">
+                        <button class="ens-counter-plus" data-rel="1">+</button>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -35,6 +41,11 @@
                 <div>
                     <h3></h3>
                     <h4>590 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="2">-</button>
+                        <input class="ens-counter-value" data-rel="2" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="2">+</button>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -44,6 +55,11 @@
                 <div>
                     <h3></h3>
                     <h4>300 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="3">-</button>
+                        <input class="ens-counter-value" data-rel="3" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="3">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,6 +72,11 @@
                 <div>
                     <h3></h3>
                     <h4>900 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="4">-</button>
+                        <input class="ens-counter-value" data-rel="4" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="4">+</button>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -65,6 +86,11 @@
                 <div>
                     <h3></h3>
                     <h4>2200 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="5">-</button>
+                        <input class="ens-counter-value" data-rel="5" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="5">+</button>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -74,6 +100,11 @@
                 <div>
                     <h3></h3>
                     <h4>450 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="6">-</button>
+                        <input class="ens-counter-value" data-rel="6" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="6">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -86,6 +117,11 @@
                 <div>
                     <h3></h3>
                     <h4>300 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="7">-</button>
+                        <input class="ens-counter-value" data-rel="7" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="7">+</button>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -95,6 +131,11 @@
                 <div>
                     <h3></h3>
                     <h4>590 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="8">-</button>
+                        <input class="ens-counter-value" data-rel="8" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="8">+</button>
+                    </div>
                 </div>
             </div>
             <div class="box">
@@ -104,10 +145,27 @@
                 <div>
                     <h3></h3>
                     <h4>250 руб</h4>
+                    <div class="ens-counter-wrapper">
+                        <button class="ens-counter-minus" data-rel="9">-</button>
+                        <input class="ens-counter-value" data-rel="9" type="text" value="0">
+                        <button class="ens-counter-plus" data-rel="9">+</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="form-group">
+        <label for="classSelect">За каким столиком вы заказываете?</label>
+        <select class="form-control" id="classSelect" name="class">
+        <option>Столик 1</option>
+        <option>Столик 2</option>
+        <option>Столик 3</option>
+        <option>Столик 4</option>
+        <option>Столик 5</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Заказать</button>
+    </form>
 </div>
 </body>
 </html>
