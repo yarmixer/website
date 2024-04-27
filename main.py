@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request, redirect, url_for
-from bs4 import BeautifulSoup
-
 
 app = Flask(__name__)
 
@@ -15,31 +13,32 @@ def menu():
     if request.method == 'GET':
         return render_template('menu.html', title='Меню ресторана')
     elif request.method == 'POST':
-        data = request.json
-        print(data)
-        html = open('templates/menu.html')
-        soup = BeautifulSoup(html, 'html.parser')
-        a1, a2, a3, a4, a5, a6, a7, a8, a9 = soup.find('span', 'count1').text,\
-            soup.find('span', 'count2').text, soup.find('span', 'count3').text,\
-            soup.find('span', 'count4').text, soup.find('span', 'count5').text,\
-            soup.find('span', 'count6').text, soup.find('span', 'count7').text,\
-            soup.find('span', 'count8').text, soup.find('span', 'count9').text
-        print(a1, a2, a3, a4, a5, a6, a7, a8, a9)
-        return redirect(url_for('check', a1=a1, a2=a2, a3=a3, a4=a4, a5=a5, a6=a6, a7=a7, a8=a8, a9=a9))
+        param = {'breakfast1': request.form['breakfast1'], 'breakfast2': request.form['breakfast2'],
+                 'breakfast3': request.form['breakfast3'], 'dinner1': request.form['dinner1'],
+                 'dinner2': request.form['dinner2'], 'dinner3': request.form['dinner3'],
+                 'pdinner1': request.form['pdinner1'], 'pdinner2': request.form['pdinner2'],
+                 'pdinner3': request.form['pdinner3'], 'class': request.form['class']}
+        print(param)
+        return redirect(url_for('check', param=param))
 
 
-@app.route('/check')
-def check(a1, a2, a3, a4, a5, a6, a7, a8, a9):
-    print(a1, a2, a3, a4, a5, a6, a7, a8, a9)
-    return 'ok'
+@app.route('/check/<param>')
+def check(param):
+    param = eval(param)
+    summa = int(param['breakfast1']) * 450 + int(param['breakfast2']) * 590 + int(param['breakfast3']) * 300 +\
+    int(param['dinner1']) * 900 + int(param['dinner2']) * 2200 + int(param['dinner3']) * 450 + int(param['pdinner1']) * 300 \
+            + int(param['pdinner2']) * 590 + int(param['pdinner3']) * 250
+    print(summa)
+    return f'Ваш чек:<br>' \
+           f'На сумму: {summa}руб <br>' \
+           f'Заказ совершен за столиком - {param["class"]}<br>' \
+           f'Для оплаты перейдите по ссылке ...<br>' \
+           f'Спасибо за покупку'
 
 
 @app.route('/test')
 def test():
     return render_template('test.html')
-
-
-
 
 
 if __name__ == '__main__':
