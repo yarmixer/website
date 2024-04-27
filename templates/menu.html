@@ -12,10 +12,24 @@
     <!-- connect style.css -->
     <link rel="stylesheet" type="text/css" href="/static/style.css" />
     <title>Меню</title>
+    <script>
+    let counters = {count: 0, count2: 0, count3: 0, count4: 0, count5: 0, count6: 0, count7: 0, count8: 0, count9: 0};
+
+    function increment(key) {
+    counters[key]++;
+    document.getElementById(key).innerText = counters[key];
+    }
+
+    function decrement(key) {
+        if (counters[key] > 0) {
+            counters[key]--;
+            document.getElementById(key).innerText = counters[key];
+        }
+    }
+    </script>
 </head>
-<body bgcolor="#F5FFFA" background="static/img/menu.jpg">
+<body bgcolor="#82898E">
 <div id="menu">
-    <form class="menu_form" method="post">
     <h1 id="section">Меню</h1>
     <div id="menu_row">
         <div id="menu_col">
@@ -28,9 +42,9 @@
                     <h3></h3>
                     <h4>450 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="1">-</button>
-                        <input class="ens-counter-value" data-rel="1" type="text" value="0" name="breakfast1">
-                        <button class="ens-counter-plus" data-rel="1">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count')" data-rel="1">-</button>
+                        <span name="123" id="count" class="count1">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count')" data-rel="1">+</button>
                     </div>
                 </div>
             </div>
@@ -42,9 +56,9 @@
                     <h3></h3>
                     <h4>590 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="2">-</button>
-                        <input class="ens-counter-value" data-rel="2" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="2">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count2')" data-rel="2">-</button>
+                        <span id="count2" class="count2">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count2')" data-rel="2">+</button>
                     </div>
                 </div>
             </div>
@@ -56,9 +70,9 @@
                     <h3></h3>
                     <h4>300 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="3">-</button>
-                        <input class="ens-counter-value" data-rel="3" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="3">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count3')" data-rel="3">-</button>
+                        <span id="count3" class="count3">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count3')" data-rel="3">+</button>
                     </div>
                 </div>
             </div>
@@ -73,9 +87,9 @@
                     <h3></h3>
                     <h4>900 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="4">-</button>
-                        <input class="ens-counter-value" data-rel="4" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="4">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count4')" data-rel="4">-</button>
+                        <span id="count4" class="count4">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count4')" data-rel="4">+</button>
                     </div>
                 </div>
             </div>
@@ -87,9 +101,9 @@
                     <h3></h3>
                     <h4>2200 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="5">-</button>
-                        <input class="ens-counter-value" data-rel="5" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="5">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count5')" data-rel="3">-</button>
+                        <span id="count5" class="count5">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count5')" data-rel="3">+</button>
                     </div>
                 </div>
             </div>
@@ -101,9 +115,9 @@
                     <h3></h3>
                     <h4>450 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="6">-</button>
-                        <input class="ens-counter-value" data-rel="6" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="6">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count6')" data-rel="3">-</button>
+                        <span id="count6" class="count6">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count6')" data-rel="3">+</button>
                     </div>
                 </div>
             </div>
@@ -118,9 +132,9 @@
                     <h3></h3>
                     <h4>300 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="7">-</button>
-                        <input class="ens-counter-value" data-rel="7" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="7">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count7')" data-rel="3">-</button>
+                        <span id="count7" class="count7">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count7')" data-rel="3">+</button>
                     </div>
                 </div>
             </div>
@@ -132,9 +146,9 @@
                     <h3></h3>
                     <h4>590 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="8">-</button>
-                        <input class="ens-counter-value" data-rel="8" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="8">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count8')" data-rel="3">-</button>
+                        <span id="count8" class="count8">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count8')" data-rel="3">+</button>
                     </div>
                 </div>
             </div>
@@ -146,14 +160,15 @@
                     <h3></h3>
                     <h4>250 руб</h4>
                     <div class="ens-counter-wrapper">
-                        <button class="ens-counter-minus" data-rel="9">-</button>
-                        <input class="ens-counter-value" data-rel="9" type="text" value="0">
-                        <button class="ens-counter-plus" data-rel="9">+</button>
+                        <button class="ens-counter-minus" onclick="decrement('count9')" data-rel="3">-</button>
+                        <span id="count9" class="count9">0</span>
+                        <button class="ens-counter-plus" onclick="increment('count9')" data-rel="3">+</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <form class="menu_form" method="post">
     <div class="form-group">
         <label for="classSelect">За каким столиком вы заказываете?</label>
         <select class="form-control" id="classSelect" name="class">
