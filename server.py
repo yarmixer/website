@@ -1,7 +1,11 @@
+import sqlite3
+
 from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
-
+db_file = 'res.db'
+con = sqlite3.connect(db_file, check_same_thread=False)
+cur = con.cursor()
 
 @app.route('/')
 def index():
@@ -28,7 +32,10 @@ def check(param):
     summa = int(param['breakfast1']) * 450 + int(param['breakfast2']) * 590 + int(param['breakfast3']) * 300 +\
     int(param['dinner1']) * 900 + int(param['dinner2']) * 2200 + int(param['dinner3']) * 450 + int(param['pdinner1']) * 300 \
             + int(param['pdinner2']) * 590 + int(param['pdinner3']) * 250
-    print(summa)
+
+    res = cur.execute(f"""SElECT count FROM class WHERE id='{param['class'][-1]}'""").fetchall()[0][0]
+    cur.execute(f"""UPDATE class SET count='{res + 1}' WHERE id='{param['class'][-1]}'""").fetchall()
+    con.commit()
     return f'Ваш чек:<br>' \
            f'На сумму: {summa}руб <br>' \
            f'Заказ совершен за столиком - {param["class"]}<br>' \
@@ -36,9 +43,21 @@ def check(param):
            f'Спасибо за покупку'
 
 
-@app.route('/test')
+@app.route('/tables_counts')
 def test():
-    return render_template('test.html')
+    res1 = cur.execute(f"""SElECT count FROM class WHERE id='1'""").fetchall()[0][0]
+    res2 = cur.execute(f"""SElECT count FROM class WHERE id='2'""").fetchall()[0][0]
+    res3 = cur.execute(f"""SElECT count FROM class WHERE id='3'""").fetchall()[0][0]
+    res4 = cur.execute(f"""SElECT count FROM class WHERE id='4'""").fetchall()[0][0]
+    res5 = cur.execute(f"""SElECT count FROM class WHERE id='5'""").fetchall()[0][0]
+    res6 = cur.execute(f"""SElECT count FROM class WHERE id='6'""").fetchall()[0][0]
+    return f'Столько заказов было совершенно за этими столиками<br>' \
+           f'Столик 1: {res1}<br>' \
+           f'Столик 2: {res2}<br>' \
+           f'Столик 3: {res3}<br>' \
+           f'Столик 4: {res4}<br>' \
+           f'Столик 5: {res5}<br>' \
+           f'Столик 6: {res6}<br>'
 
 
 if __name__ == '__main__':
